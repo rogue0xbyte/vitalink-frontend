@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import DosageDashboard from './src/pages/DosageDashboard';
+import MyProfile from './src/pages/PatientProfile';
+import OtherMedication from './src/pages/ReportOtherMedications';
+import RecentIllness from './src/pages/ReportRecentIllness';
+import SideEffect from './src/pages/ReportSideEffects';
+import TakeDose from './src/pages/TakeDose';
+import UpdateINR from './src/pages/UpdateINR'; 
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const Stack = createStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="DoseDash">
+                <Stack.Screen name="DoseDash" component={DosageDashboard} options={{ headerShown: true }} />
+                <Stack.Screen name="MyProf" component={MyProfile} options={{ headerShown: true }} />
+                <Stack.Screen name="OtherMed" component={OtherMedication} options={{ headerShown: true }} />
+                <Stack.Screen name="RecIll" component={RecentIllness} options={{ headerShown: true }} />
+                <Stack.Screen name="SideEff" component={SideEffect} options={{ headerShown: true }} />
+                <Stack.Screen name="TakeDose" component={TakeDose} options={{ headerShown: true }} />
+                <Stack.Screen name="UpdINR" component={UpdateINR} options={{ headerShown: true }} />
+
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+};
+
+export default App;
