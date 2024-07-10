@@ -13,6 +13,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import { ListItemIcon } from '@mui/material';
 import ArticleIcon from '@mui/icons-material/Article';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 280;
 
@@ -64,19 +65,25 @@ export default function DenseAppBar({title}) {
             <ListItemIcon sx={{ mr: 1 }}>
               <Diversity1Icon />
             </ListItemIcon>
-            <ListItemText primary="View all Patients" />
+            <Link to="/main-page" style={{ textDecoration: 'none' }}>
+              <ListItemText primary="View all Patients" />
+            </Link>
           </ListItem>
           <ListItem button onClick={handleDrawerClose} sx={{ mb: 5 }}>
             <ListItemIcon sx={{ mr: 1 }}>
               <ArticleIcon />
             </ListItemIcon>
-            <ListItemText primary="Today's INR Report" />
+            <Link to="/todays-report" style={{ textDecoration: 'none' }}>
+              <ListItemText primary="Today's INR Report" />
+            </Link>
           </ListItem>
           <ListItem button onClick={handleDrawerClose} sx={{ mb: 5 }}>
             <ListItemIcon sx={{ mr: 1 }}>
               <PersonAddAlt1Icon />
             </ListItemIcon>
-            <ListItemText primary="Add new Patient" />
+            <Link to="/add-patient" style={{ textDecoration: 'none' }}>
+              <ListItemText primary="Add new Patient" />
+            </Link>
           </ListItem>
         </List>
       </Drawer>
